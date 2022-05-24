@@ -1,9 +1,18 @@
-//Here we're importing items we'll need. You can add other imports here.
+import c3 from "c3";
+import d3 from "d3";
 
-//The first function. Remove this.
-const btn = document.querySelector("button");
-btn.onclick = function () {
-  alert("You ran some JavaScript");
+window.loadChart = function (json) {
+const obj = JSON.parse(json);
+const columns = obj.data;
+const chart = c3.generate({
+  bindto: '#chart',
+  data: {
+    columns: columns
+  },
+  legend: {
+    show: true,
+    position: 'inset'
+  }
+});
+
 };
-
-//
